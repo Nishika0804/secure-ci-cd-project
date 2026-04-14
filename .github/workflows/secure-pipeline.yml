@@ -12,10 +12,13 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Run Gitleaks (Secret Detection)
-      uses: gitleaks/gitleaks-action@v2
+    # 🔐 Secret Detection (FORCED)
+    - name: Run Gitleaks
+      run: |
+        docker run --rm -v ${{ github.workspace }}:/repo zricethezav/gitleaks detect --source="/repo" --verbose --exit-code 1
 
-    - name: Run Trivy (Vulnerability Scan)
+    # 🐞 Vulnerability Scan
+    - name: Run Trivy
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: 'fs'

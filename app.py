@@ -1,5 +1,5 @@
 # Simple demo application
-API_KEY = "ghp_abcdEFGHijklMNOPqrstUVWXyz1234567890" # fake secret for detection
+AWS_SECRET_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE" # fake secret for detection
 
 def greet(name):
     return f"Hello, {name}! Welcome to Secure Pipeline"
